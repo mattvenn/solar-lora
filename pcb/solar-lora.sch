@@ -54,7 +54,7 @@ F 1 "panel" V 1400 1450 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Angled_1x02" H 1300 1450 50  0001 C CNN
 F 3 "" H 1300 1450 50  0000 C CNN
 	1    1300 1450
-	-1   0    0    1   
+	-1   0    0    -1  
 $EndComp
 $Comp
 L Earth #PWR01
@@ -587,28 +587,28 @@ F 3 "" H 10650 1950 60  0000 C CNN
 	1    10650 1950
 	1    0    0    -1  
 $EndComp
-Text GLabel 1200 5650 0    60   Input ~ 0
+Text GLabel 950  5450 0    60   Input ~ 0
 divider
 $Comp
 L R R13
 U 1 1 58812066
-P 1800 5300
-F 0 "R13" V 1880 5300 50  0000 C CNN
-F 1 "10k" V 1800 5300 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 1730 5300 30  0001 C CNN
-F 3 "" H 1800 5300 30  0000 C CNN
-	1    1800 5300
+P 2200 5450
+F 0 "R13" V 2280 5450 50  0000 C CNN
+F 1 "10k" V 2200 5450 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206" V 2130 5450 30  0001 C CNN
+F 3 "" H 2200 5450 30  0000 C CNN
+	1    2200 5450
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R8
 U 1 1 5881206D
-P 1800 4950
-F 0 "R8" V 1880 4950 50  0000 C CNN
-F 1 "4.7k" H 1800 4950 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 1730 4950 30  0001 C CNN
-F 3 "" H 1800 4950 30  0000 C CNN
-	1    1800 4950
+P 2200 5100
+F 0 "R8" V 2280 5100 50  0000 C CNN
+F 1 "4.7k" H 2200 5100 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206" V 2130 5100 30  0001 C CNN
+F 3 "" H 2200 5100 30  0000 C CNN
+	1    2200 5100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -636,22 +636,20 @@ Wire Wire Line
 Wire Wire Line
 	7500 6150 7500 6250
 Wire Wire Line
-	1200 5650 1500 5650
-Wire Wire Line
-	1800 5150 1900 5150
-Text GLabel 1900 5150 2    60   Input ~ 0
+	2200 5300 2300 5300
+Text GLabel 2300 5300 2    60   Input ~ 0
 batt-adc
 Wire Wire Line
-	1800 5150 1800 5100
+	2200 5300 2200 5250
 $Comp
 L Earth #PWR021
 U 1 1 58812098
-P 1800 5850
-F 0 "#PWR021" H 1800 5600 50  0001 C CNN
-F 1 "Earth" H 1800 5700 50  0001 C CNN
-F 2 "" H 1800 5850 60  0000 C CNN
-F 3 "" H 1800 5850 60  0000 C CNN
-	1    1800 5850
+P 2200 5750
+F 0 "#PWR021" H 2200 5500 50  0001 C CNN
+F 1 "Earth" H 2200 5600 50  0001 C CNN
+F 2 "" H 2200 5750 60  0000 C CNN
+F 3 "" H 2200 5750 60  0000 C CNN
+	1    2200 5750
 	1    0    0    -1  
 $EndComp
 Text GLabel 9800 4700 2    60   Input ~ 0
@@ -661,32 +659,16 @@ rx
 Text GLabel 9800 5550 2    60   Input ~ 0
 tx
 $Comp
-L R R7
-U 1 1 588120A4
-P 1350 5850
-F 0 "R7" V 1430 5850 50  0000 C CNN
-F 1 "10k" V 1350 5850 50  0000 C CNN
-F 2 "Resistors_SMD:R_1206" V 1280 5850 30  0001 C CNN
-F 3 "" H 1350 5850 30  0000 C CNN
-	1    1350 5850
-	1    0    0    -1  
-$EndComp
-$Comp
 L Earth #PWR022
 U 1 1 588120AB
-P 1350 6050
-F 0 "#PWR022" H 1350 5800 50  0001 C CNN
-F 1 "Earth" H 1350 5900 50  0001 C CNN
-F 2 "" H 1350 6050 60  0000 C CNN
-F 3 "" H 1350 6050 60  0000 C CNN
-	1    1350 6050
+P 1650 5750
+F 0 "#PWR022" H 1650 5500 50  0001 C CNN
+F 1 "Earth" H 1650 5600 50  0001 C CNN
+F 2 "" H 1650 5750 60  0000 C CNN
+F 3 "" H 1650 5750 60  0000 C CNN
+	1    1650 5750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1350 6000 1350 6050
-Wire Wire Line
-	1350 5700 1350 5650
-Connection ~ 1350 5650
 Text GLabel 10200 4150 2    60   Input ~ 0
 divider
 Text GLabel 1750 3650 0    60   Input ~ 0
@@ -741,17 +723,6 @@ $EndComp
 Wire Wire Line
 	7850 1700 7850 1750
 Connection ~ 7850 1750
-$Comp
-L Q_NMOS_GSD Q1
-U 1 1 588120DF
-P 1700 5650
-F 0 "Q1" H 2000 5700 50  0000 R CNN
-F 1 "Q_NMOS_GSD" H 2350 5600 50  0000 R CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 1900 5750 29  0001 C CNN
-F 3 "" H 1700 5650 60  0000 C CNN
-	1    1700 5650
-	1    0    0    -1  
-$EndComp
 $Comp
 L SW_PUSH SW1
 U 1 1 588120E8
@@ -832,7 +803,7 @@ Wire Wire Line
 	10450 4600 10850 4600
 Connection ~ 10100 3350
 Text Notes 900  6350 0    60   ~ 0
-check this after the esp8266 problem
+http://electronics.stackexchange.com/questions/64490/low-current-battery-monitoring
 Wire Wire Line
 	9800 4450 10450 4450
 Wire Wire Line
@@ -911,10 +882,8 @@ panel
 Wire Wire Line
 	9800 4150 10200 4150
 Wire Wire Line
-	1800 4800 1800 4700
-Wire Wire Line
-	1800 4700 2200 4700
-Text GLabel 2200 4700 2    60   Input ~ 0
+	2200 4950 2200 4850
+Text GLabel 1050 4850 0    60   Input ~ 0
 batt
 Text GLabel 5600 1850 2    60   Input ~ 0
 batt
@@ -970,7 +939,7 @@ Text GLabel 9800 4050 2    60   Input ~ 0
 gpio9
 Text GLabel 7900 5200 0    60   Input ~ 0
 gpio10
-Text GLabel 9800 5000 2    60   Input ~ 0
+Text GLabel 7850 5300 0    60   Input ~ 0
 gpio11
 Text GLabel 9800 5100 2    60   Input ~ 0
 gpio12
@@ -1041,17 +1010,6 @@ Text GLabel 3350 5850 0    60   Input ~ 0
 gpio12
 Text GLabel 3350 5950 0    60   Input ~ 0
 gpio13
-$Comp
-L TEST_1P W8
-U 1 1 58821D4A
-P 7900 5300
-F 0 "W8" H 7900 5570 50  0000 C CNN
-F 1 "TEST_1P" H 7900 5500 50  0000 C CNN
-F 2 "Measurement_Points:Measurement_Point_Round-TH_Small" H 8100 5300 50  0001 C CNN
-F 3 "" H 8100 5300 50  0000 C CNN
-	1    7900 5300
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	3350 4450 3550 4450
 Wire Wire Line
@@ -1128,7 +1086,7 @@ Text GLabel 4700 5650 0    60   Input ~ 0
 mosi
 Text GLabel 4700 5750 0    60   Input ~ 0
 sck
-Text GLabel 4700 5950 0    60   Input ~ 0
+Text GLabel 4650 5950 0    60   Input ~ 0
 rfm-reset
 $Comp
 L Earth #PWR034
@@ -1249,7 +1207,7 @@ Wire Wire Line
 Wire Wire Line
 	3500 800  3500 850 
 Wire Wire Line
-	1650 3850 1900 3850
+	1250 3850 1900 3850
 Connection ~ 7500 4150
 Connection ~ 5100 1750
 Connection ~ 10100 1600
@@ -1267,8 +1225,6 @@ $EndComp
 Wire Wire Line
 	10100 1950 10650 1950
 Connection ~ 10650 1950
-Text GLabel 1650 3850 0    60   Input ~ 0
-reg_in
 Text GLabel 5600 1750 2    60   Input ~ 0
 reg_in
 Text GLabel 7400 1750 0    60   Input ~ 0
@@ -1384,4 +1340,88 @@ Text Notes 3950 1200 0    60   ~ 0
 this divider stops the charger from \ndrawing too much current from the panel
 Text Notes 3850 800  0    60   ~ 0
 see adafruit's analysis of why a normal lipo charger is not a good idea:\nhttps://learn.adafruit.com/usb-dc-and-solar-lipoly-charger?view=all#is-this-a-max-power-point-tracker-mppt
+$Comp
+L BC849 Q1
+U 1 1 58824819
+P 1550 5450
+F 0 "Q1" H 1750 5525 50  0000 L CNN
+F 1 "BC849" H 1750 5450 50  0000 L CNN
+F 2 "Housings_SOT-23_SOT-143_TSOT-6:SOT-23" H 1750 5375 50  0000 L CIN
+F 3 "" H 1550 5450 50  0000 L CNN
+	1    1550 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Q_PMOS_GSD Q2
+U 1 1 58824928
+P 1650 4950
+F 0 "Q2" V 1900 5200 50  0000 R CNN
+F 1 "Q_PMOS_GSD" V 1900 5050 50  0000 R CNN
+F 2 "Housings_SOT-23_SOT-143_TSOT-6:SOT-23" H 1850 5050 50  0001 C CNN
+F 3 "" H 1650 4950 50  0000 C CNN
+F 4 "2061419" H 1650 4950 60  0001 C CNN "farnell #"
+	1    1650 4950
+	0    1    -1   0   
+$EndComp
+$Comp
+L R R7
+U 1 1 588250D7
+P 1150 5450
+F 0 "R7" V 1230 5450 50  0000 C CNN
+F 1 "10k" V 1150 5450 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206" V 1080 5450 30  0001 C CNN
+F 3 "" H 1150 5450 30  0000 C CNN
+	1    1150 5450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1050 4850 1450 4850
+Wire Wire Line
+	2200 4850 1850 4850
+Wire Wire Line
+	1250 5200 1250 4850
+Connection ~ 1250 4850
+Wire Wire Line
+	1550 5200 1650 5200
+Wire Wire Line
+	1650 5150 1650 5250
+Connection ~ 1650 5200
+Wire Wire Line
+	2200 5600 2200 5750
+Wire Wire Line
+	1650 5650 1650 5750
+$Comp
+L R R14
+U 1 1 58825996
+P 1400 5200
+F 0 "R14" V 1480 5200 50  0000 C CNN
+F 1 "10k" V 1400 5200 50  0000 C CNN
+F 2 "Resistors_SMD:R_1206" V 1330 5200 30  0001 C CNN
+F 3 "" H 1400 5200 30  0000 C CNN
+	1    1400 5200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	950  5450 1000 5450
+Wire Wire Line
+	1300 5450 1350 5450
+Text Notes 1200 4600 0    60   ~ 0
+check low leakage
+$Comp
+L VCC #PWR043
+U 1 1 588240AE
+P 1250 3850
+F 0 "#PWR043" H 1250 3700 50  0001 C CNN
+F 1 "VCC" H 1250 4000 50  0000 C CNN
+F 2 "" H 1250 3850 50  0000 C CNN
+F 3 "" H 1250 3850 50  0000 C CNN
+	1    1250 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 9800 5000 2    60   Input ~ 0
+rfm-reset
+Wire Wire Line
+	4650 5950 4700 5950
+Wire Wire Line
+	7850 5300 7900 5300
 $EndSCHEMATC
