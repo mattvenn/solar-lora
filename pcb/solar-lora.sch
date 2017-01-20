@@ -1382,4 +1382,6 @@ Text Notes 7150 6650 0    60   ~ 0
 Matt Venn 2017
 Text Notes 3950 1200 0    60   ~ 0
 this divider stops the charger from \ndrawing too much current from the panel
+Text Notes 3850 800  0    60   ~ 0
+see adafruit's analysis of why a normal lipo charger is not a good idea:\nhttps://learn.adafruit.com/usb-dc-and-solar-lipoly-charger?view=all#is-this-a-max-power-point-tracker-mppt
 $EndSCHEMATC
