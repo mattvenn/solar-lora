@@ -102,6 +102,7 @@ F 0 "U1" H 4400 1450 60  0000 C CNN
 F 1 "mcp73871" H 4500 2800 60  0000 C CNN
 F 2 "Housings_DFN_QFN:QFN-20-1EP_4x4mm_Pitch0.5mm" H 4600 2200 60  0001 C CNN
 F 3 "" H 4600 2200 60  0001 C CNN
+F 4 "1642489" H 4600 2200 60  0001 C CNN "farnell #"
 	1    4600 2200
 	1    0    0    -1  
 $EndComp
@@ -143,7 +144,7 @@ L R R1
 U 1 1 5880FE8C
 P 3500 1000
 F 0 "R1" V 3580 1000 50  0000 C CNN
-F 1 "270k" V 3500 1000 50  0000 C CNN
+F 1 "200k" V 3500 1000 50  0000 C CNN
 F 2 "Resistors_SMD:R_1206" V 3430 1000 50  0001 C CNN
 F 3 "" H 3500 1000 50  0000 C CNN
 	1    3500 1000
@@ -154,7 +155,7 @@ L R R2
 U 1 1 5880FED3
 P 3500 1400
 F 0 "R2" V 3580 1400 50  0000 C CNN
-F 1 "100k" V 3500 1400 50  0000 C CNN
+F 1 "47k" V 3500 1400 50  0000 C CNN
 F 2 "Resistors_SMD:R_1206" V 3430 1400 50  0001 C CNN
 F 3 "" H 3500 1400 50  0000 C CNN
 	1    3500 1400
@@ -214,7 +215,7 @@ L R R3
 U 1 1 58810088
 P 5700 2350
 F 0 "R3" V 5750 2150 50  0000 C CNN
-F 1 "2k" V 5700 2350 50  0000 C CNN
+F 1 "8k" V 5700 2350 50  0000 C CNN
 F 2 "Resistors_SMD:R_1206" V 5630 2350 50  0001 C CNN
 F 3 "" H 5700 2350 50  0000 C CNN
 	1    5700 2350
@@ -397,10 +398,10 @@ F 3 "" H 7150 2700 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	7150 2550 7150 2700
-Text Notes 6500 3000 0    60   ~ 0
-thermister temp window\nset with r5 and r6\n
-Text Notes 4950 3300 0    60   ~ 0
-measure short circuit current of 6v\nsolar panel to pick r3
+Text Notes 6700 3100 0    60   ~ 0
+thermister temp window\nset with r5 and r6\nfarnell #2492886\n
+Text Notes 4500 3750 0    60   ~ 0
+short circuit current: 125ma\nopen circuit voltage: 7.25v\n\nfrom page 23 of datasheet\nprog1 (fast charge) r3 =  1000v / 125mA = 8k\nprog3 (termination) r4 = 1000v / 10mA = 100k
 Wire Notes Line
 	5700 2600 5700 3150
 $Comp
@@ -411,6 +412,7 @@ F 0 "IC1" H 8050 6200 40  0000 L BNN
 F 1 "ATMEGA328P-A" H 9200 3550 40  0000 L BNN
 F 2 "Housings_QFP:TQFP-32_7x7mm_Pitch0.8mm" H 8800 4950 30  0000 C CIN
 F 3 "" H 8800 4950 60  0000 C CNN
+F 4 "1715486" H 8800 4950 60  0001 C CNN "farnell #"
 	1    8800 4950
 	1    0    0    -1  
 $EndComp
@@ -750,10 +752,10 @@ L LP2985LV U3
 U 1 1 58812102
 P 9250 1900
 F 0 "U3" H 9450 1450 60  0000 C CNN
-F 1 "LP2985-33DBVR" H 9250 2350 60  0000 C CNN
+F 1 "CAT6219-330TDGT3" H 9250 2350 60  0000 C CNN
 F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 9250 1900 60  0001 C CNN
 F 3 "" H 9250 1900 60  0000 C CNN
-F 4 "2395925" H 9250 1900 60  0001 C CNN "farnell #"
+F 4 "2534233" H 9250 1900 60  0001 C CNN "farnell #"
 	1    9250 1900
 	1    0    0    -1  
 $EndComp
@@ -802,7 +804,7 @@ Wire Wire Line
 Wire Wire Line
 	10450 4600 10850 4600
 Connection ~ 10100 3350
-Text Notes 900  6350 0    60   ~ 0
+Text Notes 850  7000 0    60   ~ 0
 http://electronics.stackexchange.com/questions/64490/low-current-battery-monitoring
 Wire Wire Line
 	9800 4450 10450 4450
@@ -810,8 +812,8 @@ Wire Wire Line
 	9800 4550 10450 4550
 Wire Wire Line
 	7400 1750 8450 1750
-Text Notes 9100 1200 0    60   ~ 0
-1ua IQ
+Text Notes 8750 1350 0    60   ~ 0
+500mA LDO with 47uA IQ
 $Comp
 L D_Schottky D1
 U 1 1 5881DFF0
@@ -820,6 +822,7 @@ F 0 "D1" H 1650 1500 50  0000 C CNN
 F 1 "D_Schottky" H 1650 1300 50  0000 C CNN
 F 2 "Diodes_SMD:DO-214BA" H 1650 1400 50  0001 C CNN
 F 3 "" H 1650 1400 50  0000 C CNN
+F 4 "1907687" H 1650 1400 60  0001 C CNN "farnell #"
 	1    1650 1400
 	-1   0    0    1   
 $EndComp
@@ -914,7 +917,7 @@ F 3 "" H 7000 4150 60  0000 C CNN
 	1    7000 4150
 	0    1    1    0   
 $EndComp
-Text Notes 850  7650 0    60   ~ 0
+Text Notes 850  7450 0    60   ~ 0
 http://www.atmel.com/images/atmel-2521-avr-hardware-design-considerations_applicationnote_avr042.pdf
 Wire Wire Line
 	7900 3950 7900 3850
@@ -978,7 +981,7 @@ F 3 "" H 3350 4550 60  0000 C CNN
 	1    3350 4550
 	0    -1   -1   0   
 $EndComp
-Text Notes 900  7250 0    60   ~ 0
+Text Notes 850  7150 0    60   ~ 0
 http://ww1.microchip.com/downloads/en/DeviceDoc/20002090C.pdf\n
 Text GLabel 9800 4900 2    60   Input ~ 0
 radio_cs
@@ -1042,7 +1045,7 @@ Wire Wire Line
 	3350 5850 3550 5850
 Wire Wire Line
 	3350 5950 3550 5950
-Text Notes 900  7450 0    60   ~ 0
+Text Notes 850  7300 0    60   ~ 0
 http://docs-europe.electrocomponents.com/webdocs/1544/0900766b81544028.pdf
 $Comp
 L rfm9x U2
@@ -1253,7 +1256,7 @@ F 0 "P5" H 6210 6470 50  0000 C CNN
 F 1 "BNC" V 6310 6290 50  0000 C CNN
 F 2 "fp:CON-SMA-EDGE" H 6200 6350 50  0001 C CNN
 F 3 "" H 6200 6350 50  0000 C CNN
-F 4 "526-5785" H 6200 6350 60  0001 C CNN "farnell #"
+F 4 "1342652" H 6200 6350 60  0001 C CNN "farnell #"
 	1    6200 6350
 	1    0    0    -1  
 $EndComp
@@ -1280,6 +1283,7 @@ F 0 "X1" H 10650 4540 50  0000 C CNN
 F 1 "CRYSTAL_SMD" H 10500 4700 50  0000 L CNN
 F 2 "fp:cstce-v" H 10650 4450 50  0001 C CNN
 F 3 "" H 10650 4450 50  0000 C CNN
+F 4 "2443265" H 10650 4450 60  0001 C CNN "farnell #"
 	1    10650 4450
 	1    0    0    1   
 $EndComp
@@ -1334,11 +1338,11 @@ $EndComp
 Connection ~ 1900 1400
 Text Notes 7450 7500 0    60   ~ 0
 solar lora node
-Text Notes 7150 6650 0    60   ~ 0
-Matt Venn 2017
-Text Notes 3950 1200 0    60   ~ 0
-this divider stops the charger from \ndrawing too much current from the panel
-Text Notes 3850 800  0    60   ~ 0
+Text Notes 7150 7050 0    157  ~ 0
+Matt Venn 2017\nv0.1
+Text Notes 4200 1400 0    60   ~ 0
+this divider stops the charger from \ndrawing too much current from the panel\n\nR2 = 47k\nR1 = 200k \nvpcc = 1.23V when vcc = 6.4v\nplus 0.2v diode drop = 6.6v\n\nneed to test!
+Text Notes 850  6850 0    60   ~ 0
 see adafruit's analysis of why a normal lipo charger is not a good idea:\nhttps://learn.adafruit.com/usb-dc-and-solar-lipoly-charger?view=all#is-this-a-max-power-point-tracker-mppt
 $Comp
 L BC849 Q1
@@ -1406,7 +1410,7 @@ Wire Wire Line
 Wire Wire Line
 	1300 5450 1350 5450
 Text Notes 1200 4600 0    60   ~ 0
-check low leakage
+igs leakage = 10uA
 $Comp
 L VCC #PWR043
 U 1 1 588240AE
@@ -1424,4 +1428,6 @@ Wire Wire Line
 	4650 5950 4700 5950
 Wire Wire Line
 	7850 5300 7900 5300
+Text Notes 6600 6350 0    60   ~ 0
+526-5785 rs\n
 $EndSCHEMATC
