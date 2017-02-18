@@ -36,16 +36,16 @@ while True:
         line = serial_port.readline()
         log.debug(line)
         #Got: BAT:4055 PAN:0 UP:3137
-        m = re.match("^Got: BAT:(\d+) PAN:(\d+) UP:(\d+) RSSI: (-?\d+)", line)
+        m = re.match("^Got: BAT:(\d+) PAN:(\d+) PKTS:(\d+) RSSI: (-?\d+)", line)
         if m is not None:
             batt =  int(m.group(1))
             panel = int(m.group(2))
-            uptime = int(m.group(3))
+            packets = int(m.group(3))
             rssi = int(m.group(4))
-            log.info("batt = %d mv, panel = %d mv, uptime = %d ms rssi = %d" % (batt, panel, uptime, rssi))
+            log.info("batt = %d mv, panel = %d mv, packets = %d ms rssi = %d" % (batt, panel, packets, rssi))
 
 
-            r = requests.post(keys["inputUrl"], params = { "batt": batt, "panel": panel, "uptime": uptime, "rssi": rssi, "private_key": keys["privateKey"] })
+            r = requests.post(keys["inputUrl"], params = { "batt": batt, "panel": panel, "packets": packets, "rssi": rssi, "private_key": keys["privateKey"] })
             log.debug(r.url)
             log.debug(r.status_code)
             log.debug(r.text)

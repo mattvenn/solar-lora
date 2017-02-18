@@ -36,6 +36,8 @@ RH_RF95 rf95(RFM95_CS, RFM95_INT);
 
 
 volatile int f_wdt=1;
+volatile int f_wdt_count=0;
+unsigned long packet_count = 0;
 
 void setup()
 {
@@ -70,10 +72,15 @@ void measure_sensors()
     Serial.println(batt_mv);
     digitalWrite(batt_adc_on, false);
 
+    // doesn't work
+    Serial.print("temp:");
+    int8_t temp = rf95.temperatureRead();
+    Serial.println(temp);
+
 }
+
 void loop()
 {
-
   if(f_wdt == 1)
   {
     //digitalWrite(GPIO7, !digitalRead(GPIO7));
@@ -84,11 +91,10 @@ void loop()
     rf95.sleep();
     
     f_wdt = 0;
-    //todo put rfm to sleep here
-    enterSleep();
   }
   else
   {
+      enterSleep();
   }
 }
 
@@ -97,19 +103,17 @@ int16_t packetnum = 0;  // packet counter, we increment per xmission
 void send_pack()
 {
   Serial.println("Sending to rf95_server");
-  // Send a message to rf95_server
   
   char buffer [50];
 
-  int sendLen = sprintf(buffer, "BAT:%d PAN:%d UP:%lu", batt_mv, panel_mv, millis());
+  int sendLen = sprintf(buffer, "BAT:%d PAN:%d PKTS:%lu", batt_mv, panel_mv, packet_count++);
   sendLen += 1;  // add one for the null terminator
-  Serial.println(sendLen);
 
   rf95.send((uint8_t *)buffer, sendLen);
-  //rf95.send((uint8_t *)radiopacket, 20);
 
-  Serial.println("Waiting for packet to complete..."); delay(10);
+  Serial.println("Waiting for packet to complete..."); 
   rf95.waitPacketSent();
+  Serial.println("done");
 
 /*
   // Now wait for a reply
@@ -146,7 +150,13 @@ ISR(WDT_vect)
 {
   if(f_wdt == 0)
   {
-    f_wdt=1;
+    // loop to increase time
+    f_wdt_count ++;
+    if(f_wdt_count == 7)
+    {
+        f_wdt=1;
+        f_wdt_count=0;
+    }
   }
   else
   {
