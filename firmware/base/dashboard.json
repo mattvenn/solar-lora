@@ -1,0 +1,140 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "battery",
+						"value": "datasources[\"lora\"][0][\"batt\"]",
+						"units": "mv",
+						"min_value": 0,
+						"max_value": "5000"
+					}
+				},
+				{
+					"type": "sparkline",
+					"settings": {
+						"title": "battery 7 days",
+						"value": [
+							"datasources[\"lora-historic\"][\"batt\"]"
+						]
+					}
+				},
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "panel",
+						"value": "datasources[\"lora\"][0][\"panel\"]",
+						"units": "mv",
+						"min_value": 0,
+						"max_value": "7000"
+					}
+				},
+				{
+					"type": "sparkline",
+					"settings": {
+						"title": "panel 7 days",
+						"value": [
+							"datasources[\"lora-historic\"][\"panel\"]"
+						]
+					}
+				}
+			]
+		},
+		{
+			"title": "system",
+			"width": 1,
+			"row": {
+				"3": 9
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "packets",
+						"size": "big",
+						"value": "datasources[\"lora\"][0][\"packets\"]",
+						"animate": true,
+						"units": ""
+					}
+				},
+				{
+					"type": "indicator",
+					"settings": {
+						"title": "feed live",
+						"value": "\nvar ts = new Date(datasources[\"lora\"][\"0\"][\"timestamp\"]).getTime();\nvar ms = new Date().getTime();\nvar d = ms - ts;\n\nif (d > 5 * 60 * 1000) {\n    return 0;\n} else {\n    return 1;\n}"
+					}
+				},
+				{
+					"type": "sparkline",
+					"settings": {
+						"value": [
+							"datasources[\"lora-historic\"][\"packets\"]\n"
+						]
+					}
+				}
+			]
+		},
+		{
+			"title": "radio",
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "RSSI",
+						"value": "datasources[\"lora\"][0][\"rssi\"]",
+						"units": "dBm",
+						"min_value": "-100",
+						"max_value": "0"
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "lora",
+			"type": "JSON",
+			"settings": {
+				"url": "http://phant.cursivedata.co.uk/output/1NoXO3lqYWuAyEN1GzJ0iyeJJgVO.json?limit=1",
+				"use_thingproxy": false,
+				"refresh": 30,
+				"method": "GET",
+				"name": "lora"
+			}
+		},
+		{
+			"name": "lora-historic",
+			"type": "playback",
+			"settings": {
+				"datafile": "http://phant.cursivedata.co.uk/output/1NoXO3lqYWuAyEN1GzJ0iyeJJgVO.json?limit=100&sample=20",
+				"refresh": 0.001
+			}
+		}
+	],
+	"columns": 3
+}
